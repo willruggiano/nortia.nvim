@@ -1,6 +1,6 @@
 " You probably always want to set this in your vim file
 set background=dark
-let g:colors_name="nortia-nvim"
+let g:colors_name="nortia"
 
 " By setting our module to nil, we clear lua's cache,
 " which means the require ahead will *always* occur.
@@ -11,23 +11,23 @@ let g:colors_name="nortia-nvim"
 "
 " Note if you're working in on your theme and have lush.ify'd the buffer,
 " your changes will be applied with our without the following line.
-lua package.loaded['lush_theme.nortia-nvim'] = nil
+lua package.loaded['lush_theme.nortia'] = nil
 
 " include our theme file and pass it to lush to apply
-lua require('lush')(require('lush_theme.nortia-nvim'))
+lua require('lush')(require('lush_theme.nortia'))
 lua << EOF
   local bang
   bang = function()
-    if vim.g.colors_name == "nortia-nvim" then
+    if vim.g.colors_name == "nortia" then
 
         local nortia = require('nortia.theme')
 
         if nortia.gate() then
             -- clear lua's cache so our module gets to run again
-            package.loaded['lush_theme.nortia-nvim'] = nil
+            package.loaded['lush_theme.nortia'] = nil
 
             -- pass our theme to lush to apply
-            local theme = require('lush_theme.nortia-nvim')
+            local theme = require('lush_theme.nortia')
             require('lush')(theme)
 
             if vim.g.airline_theme ~= nil then
