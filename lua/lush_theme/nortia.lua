@@ -13,6 +13,7 @@
 --  "Y8P"  "Y888888P'"Y88P"`Y8P' "YY8P8P88P     `Y8
 --
 
+---@diagnostic disable
 local lush = require "lush"
 local hsl = lush.hsl
 local nortia = require "nortia.theme"
@@ -80,6 +81,7 @@ local theme = lush(function()
     Fore3 { fg = fg_offset(Fore2.fg, 10) },
     Fore4 { fg = fg_offset(Fore3.fg, 10) },
     Fore5 { fg = fg_offset(Fore4.fg, 10) },
+    Fore10 { fg = fg_offset(Fore4.fg, 50) },
 
     Back1 { bg = hsl(nortia.bg()) },
     Back2 { bg = bg_offset(Back1.bg, 3) },
@@ -323,24 +325,24 @@ local theme = lush(function()
     GitSignsDelete { fg = DiffDelete.fg, bg = Back2.bg, sp = "none" },
 
     -- Indent-blankline
-    IndentBlanklineChar { fg = Comment.fg, gui = "nocombine" },
+    IndentBlanklineChar { fg = Fore10.fg, gui = "nocombine" },
 
     -- Lightspeed
-    LightspeedLabel { gui = "bold,underline", fg = Highlighter.bg },
-    LightspeedLabelOverlapped { fg = Highlighter.bg, gui = Underline.gui },
+    LightspeedLabel { Highlighter, gui = "bold" },
+    LightspeedLabelOverlapped { Highlighter, gui = Underline.gui },
     LightspeedLabelDistant { fg = Palette5.fg, gui = "bold,underline" },
     LightspeedLabelDistantOverlapped { fg = Palette5.fg, gui = Underline.gui },
-    LightspeedShortcut { Highlighter, gui = "bold" },
+    LightspeedShortcut { Highlighter, gui = "bold,underline" },
     LightspeedShortcutOverlapped { LightspeedShortcut },
     LightspeedOneCharMatch { bg = Palette4.fg, fg = White.fg, gui = Bold.ui },
     LightspeedMaskedChar { fg = Palette4.fg },
-    LightspeedUnlabeledMatch { gui = Bold.gui },
+    LightspeedUnlabeledMatch { bg = Highlighter.bg, gui = Bold.gui },
     LightspeedUniqueChar { LightspeedUnlabeledMatch },
     LightspeedPendingOpArea { bg = "#f00077", fg = White.fg },
     LightspeedGreyWash { fg = Back5.bg },
 
     -- Lir
-    LirTransparentCursor { blend = "100", gui = Strikethrough.gui },
+    LirTransparentCursor { blend = 100, gui = Strikethrough.gui },
     LitGitStatusBracket { Comment },
     LirGitStatusIndex { bg = Back1.bg, fg = DiffChange.fg },
     LirGitStatusWorktree { bg = Back1.bg, fg = DiffChange.fg },
