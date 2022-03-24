@@ -327,19 +327,10 @@ local theme = lush(function()
     -- Indent-blankline
     IndentBlanklineChar { fg = Fore10.fg, gui = "nocombine" },
 
-    -- Lightspeed
-    LightspeedLabel { Highlighter, gui = "bold" },
-    LightspeedLabelOverlapped { Highlighter, gui = Underline.gui },
-    LightspeedLabelDistant { fg = Palette5.fg, gui = "bold,underline" },
-    LightspeedLabelDistantOverlapped { fg = Palette5.fg, gui = Underline.gui },
-    LightspeedShortcut { Highlighter, gui = "bold,underline" },
-    LightspeedShortcutOverlapped { LightspeedShortcut },
-    LightspeedOneCharMatch { bg = Palette4.fg, fg = White.fg, gui = Bold.ui },
-    LightspeedMaskedChar { fg = Palette4.fg },
-    LightspeedUnlabeledMatch { bg = Highlighter.bg, gui = Bold.gui },
-    LightspeedUniqueChar { LightspeedUnlabeledMatch },
-    LightspeedPendingOpArea { bg = "#f00077", fg = White.fg },
-    LightspeedGreyWash { fg = Back5.bg },
+    -- Leap
+    LeapMatch { gui = "bold,underline" },
+    LeapLabelPrimary { Highlighter },
+    LeapLabelSecondary { Highlighter, gui = "underline" },
 
     -- Lir
     LirTransparentCursor { blend = 100, gui = Strikethrough.gui },
