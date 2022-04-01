@@ -208,7 +208,7 @@ local theme = lush(function()
 
     String { fg = Palette3.fg }, --   a string constant: "this is a string"
 
-    Type { Keyword }, -- (preferred) int, long, char, etc.
+    Type {}, -- (preferred) int, long, char, etc.
     -- StorageClass   { }, -- static, register, volatile, etc.
     -- Structure      { }, --  struct, union, enum, etc.
     -- Typedef        { }, --  A typedef
@@ -299,10 +299,11 @@ local theme = lush(function()
     -- TSOperator           { }, -- For any operator: `+`, but also `->` and `*` in C.
     -- TSParameter          { }, -- For parameters of a function.
     -- TSParameterReference { }, -- For references to parameters of a function.
+    TSPlaygroundFocus { Highlighter },
     TSProperty { TSField },
     -- TSPunctBracket       { }, -- For brackets and parens.
     -- TSPunctDelimiter     { }, -- For delimiters ie: `.`
-    -- TSPunctSpecial       { }, -- For special punctutation that does not fall in the catagories before.
+    -- TSPunctSpecial       { }, -- For special punctutation that does not fall in the categories before.
     TSRepeat { Keyword },
     -- TSString             { }, -- For strings.
     -- TSStringEscape       { }, -- For escape characters within a string.
